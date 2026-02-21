@@ -1,4 +1,4 @@
-package org.example;
+package org.example.model;
 
 public class Student {
     private String name;
@@ -7,6 +7,9 @@ public class Student {
 
     public Student(){
 
+    }
+    public Student(String studentID) {
+        this.studentID = studentID;
     }
     public Student(String name, String studentID, String program){
         this.name = name;
@@ -32,5 +35,14 @@ public class Student {
 
     public void setProgram(String program) {
         this.program = program;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "name='" + name + '\'' +
+                ", studentID='" + studentID + '\'' +
+                ", program='" + program + '\'' +
+                '}';
     }
 }
