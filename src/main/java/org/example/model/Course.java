@@ -17,19 +17,24 @@ public class Course {
         return courseName;
     }
     public String getCourseID(){
+
         return courseID;
     }
     public String getProgram(){
+
         return program;
     }
 
     public void setCourseName(String courseName){
+
         this.courseName = courseName;
     }
     public void setCourseID(String courseID){
+
         this.courseID = courseID;
     }
     public void setProgram(String program){
+
         this.program = program;
     }
 }
