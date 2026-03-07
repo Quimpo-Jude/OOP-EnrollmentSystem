@@ -11,14 +11,14 @@ public class StudentRegistration {
     }
     public void displayAll(){
         for (Student s : studentLists){
-            System.out.println(s.getName());
-            System.out.println(s.getStudentID());
+            System.out.println(s.getPersonName());
+            System.out.println(s.getPersonID());
             System.out.println(s.getProgram());
         }
     }
     public void updateStudentRecord(Student student){
         for(int i = 0; i<studentLists.size(); i++){
-            if(studentLists.get(i).getStudentID().equals(student.getStudentID())){
+            if(studentLists.get(i).getPersonID().equals(student.getPersonID())){
                 studentLists.set(i , student);
                 break;
             }
@@ -26,7 +26,7 @@ public class StudentRegistration {
     }
     public void deleteStudentRecord(String studentID){
         for(int i = 0; i<studentLists.size(); i++){
-            if(studentLists.get(i).getStudentID().equals(studentID)){
+            if(studentLists.get(i).getPersonID().equals(studentID)){
                 studentLists.remove(i);
                 break;
             }
