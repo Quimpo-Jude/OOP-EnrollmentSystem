@@ -1,11 +1,11 @@
 package org.example.model;
 
-public class Person {
+abstract class Person {
     private String personName;
     private String personID;
 
+    public abstract void mainTask();
     public Person (){
-
     }
     public Person (String personName,String personID){
         this.personName = personName;
@@ -23,5 +23,6 @@ public class Person {
     public void setPersonName(String personName){
         this.personName = personName;
     }
+
 }
 
