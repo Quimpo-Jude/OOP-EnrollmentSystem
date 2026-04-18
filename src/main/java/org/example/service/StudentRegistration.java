@@ -3,12 +3,14 @@ import org.example.model.Student;
 
 import java.util.ArrayList;
 
-public class StudentRegistration {
+public class StudentRegistration implements StudentReg{
     private ArrayList<Student> studentLists = new ArrayList();
 
+    @Override
     public void addStudent(Student student){
         studentLists.add(student);
     }
+    @Override
     public void displayAll(){
         for (Student s : studentLists){
             System.out.println(s.getPersonName());
@@ -16,6 +18,7 @@ public class StudentRegistration {
             System.out.println(s.getProgram());
         }
     }
+    @Override
     public void updateStudentRecord(Student student){
         for(int i = 0; i<studentLists.size(); i++){
             if(studentLists.get(i).getPersonID().equals(student.getPersonID())){
@@ -24,13 +27,15 @@ public class StudentRegistration {
             }
         }
     }
-    public void deleteStudentRecord(String studentID){
-        for(int i = 0; i<studentLists.size(); i++){
-            if(studentLists.get(i).getPersonID().equals(studentID)){
+    @Override
+    public String deleteStudentRecord(String studentID) {
+        for (int i = 0; i < studentLists.size(); i++) {
+            if (studentLists.get(i).getPersonID().equals(studentID)) {
                 studentLists.remove(i);
-                break;
+                return "Success";
             }
         }
-    }
 
+        return "Error";
+    }
 }
