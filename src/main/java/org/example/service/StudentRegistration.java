@@ -11,12 +11,20 @@ public class StudentRegistration implements StudentReg{
         studentLists.add(student);
     }
     @Override
-    public void displayAll(){
-        for (Student s : studentLists){
-            System.out.println(s.getPersonName());
-            System.out.println(s.getPersonID());
-            System.out.println(s.getProgram());
+    public void displayAll() {
+        System.out.println("\n------------------------------------------------------------------------------------------");
+        // This creates a header with specific spacing
+        System.out.printf("%-15s | %-40s | %-10s%n", "ID", "NAME", "PROGRAM");
+        System.out.println("------------------------------------------------------------------------------------------");
+
+        for (Student s : studentLists) {
+            // %-15s means: String, left-justified, 15 characters wide
+            System.out.printf("%-15s | %-40s | %-10s%n",
+                    s.getPersonID(),
+                    s.getPersonName(),
+                    s.getProgram());
         }
+        System.out.println("------------------------------------------------------------------------------------------\n");
     }
     @Override
     public void updateStudentRecord(Student student){
