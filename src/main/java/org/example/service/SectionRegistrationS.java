@@ -21,6 +21,20 @@ public class SectionRegistrationS implements SectionRegistration{
     }
     @Override
     public List<Section> displayAll(){
+
+        System.out.println("\n------------------------------------------------------------------------------------------");
+        System.out.printf("%-15s | %-40s | %-10s%n", "SECTION ID", "SECTION NAME", "STUDENTS");
+        System.out.println("------------------------------------------------------------------------------------------");
+
+        for (Section s : sectionList){
+            System.out.printf("%-15s | %-40s | %-10s%n",
+                    s.getSectionID(),
+                    s.getSectionName(),
+                    s.getStudentList().size());
+        }
+
+        System.out.println("------------------------------------------------------------------------------------------\n");
+
         return sectionList.stream().toList();
     }
 

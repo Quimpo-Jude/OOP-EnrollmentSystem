@@ -12,11 +12,19 @@ public class CourseRegistratiion implements CourseReg{
     }
     @Override
     public void displayAll(){
+
+        System.out.println("\n------------------------------------------------------------------------------------------");
+        System.out.printf("%-15s | %-40s | %-10s%n", "COURSE ID", "COURSE NAME", "PROGRAM");
+        System.out.println("------------------------------------------------------------------------------------------");
+
         for (Course c : courseLists){
-            System.out.println(c.getCourseName());
-            System.out.println(c.getProgram());
-            System.out.println(c.getCourseID());
+            System.out.printf("%-15s | %-40s | %-10s%n",
+                    c.getCourseID(),
+                    c.getCourseName(),
+                    c.getProgram());
         }
+
+        System.out.println("------------------------------------------------------------------------------------------\n");
     }
     @Override
     public void updateCourseRecord(Course course){
