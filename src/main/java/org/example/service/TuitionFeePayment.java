@@ -10,6 +10,7 @@ public class TuitionFeePayment {
         if (discountRate != 0) {
             totalFee = totalFee - (totalFee * discountRate);
         }
+        balance = totalFee;
         return totalFee;
     }
     public void makePayment(double amount){
@@ -18,8 +19,8 @@ public class TuitionFeePayment {
     public double getBalance(){
         return balance;
     }
-    public boolean isFullyPaid(){
-        return balance == 0 ? true : balance >= 0 ? false : false;
+    public boolean isFullyPaid() {
+        return balance <= 0;
     }
 
 }

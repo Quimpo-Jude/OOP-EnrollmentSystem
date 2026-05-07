@@ -24,5 +24,12 @@ abstract class Person {
         this.personName = personName;
     }
 
+    @Override
+    public String toString() {
+        return "Person{" +
+                "personName='" + personName + '\'' +
+                ", personID='" + personID + '\'' +
+                '}';
+    }
 }
 

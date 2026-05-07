@@ -19,5 +19,12 @@ public class Student extends Person{
         this.program = program;
     }
 
-
+    @Override
+    public String toString() {
+        return "Studen{" +
+                "name='" + getPersonName() + '\'' +
+                ", id='" + getPersonID() + '\'' +
+                ", program='" + program + '\'' +
+                '}';
+    }
 }
