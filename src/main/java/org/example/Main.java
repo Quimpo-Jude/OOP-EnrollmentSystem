@@ -1,4 +1,5 @@
 package org.example;
+import org.example.exception.SectionFullExcep;
 import org.example.model.Course;
 import org.example.model.Instructor;
 import org.example.model.Student;
@@ -234,7 +235,18 @@ public class Main{
                                 System.out.print("Choose Section: ");
                                 int secchoice = scan.nextInt();
 
-                                seclist.get(secchoice).getStudentList().add(enstudent);
+                                try {
+                                    sectionreg.enrollStudent(
+                                            seclist.get(secchoice),
+                                            enstudent
+                                    );
+
+                                    System.out.println("Successfully enrolled student");
+
+                                }
+                                catch (SectionFullExcep e) {
+                                    System.out.println("ERROR: " + e.getMessage());
+                                }
 
                                 System.out.println("Successfully enrolled student");
                                 break;
