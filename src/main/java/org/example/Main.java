@@ -16,12 +16,13 @@ public class Main{
         SectionRegistrationS sectionreg = new SectionRegistrationS();
         TuitionFeePayment tuition = new TuitionFeePayment();
         DepartmentRegistrationService dept = new DepartmentRegistrationService();
+        InstructorRegServ instreg = new InstructorRegServ();
 
         Scanner scan = new Scanner(System.in);
         int ch1;
 
         do {
-            System.out.print("----------------------------------\n\t\tEnrollment System\n----------------------------------\nWelcome! \nHow may I assist you today? \n[1] Student Management \n[2] Course Management \n[3] Enrollment \n[4] Tuition Fee Payment \n[5] View Departments \n[0] Exit \nEnter your choice: ");
+            System.out.print("----------------------------------\n\t\tEnrollment System\n----------------------------------\nWelcome! \nHow may I assist you today? \n[1] Student Management \n[2] Course Management \n[3] Enrollment \n[4] Tuition Fee Payment \n[5] View Departments \n[6] Instructor Management\n[0] Exit \nEnter your choice: ");
             ch1 = scan.nextInt();
             switch (ch1) {
                 case 1:
@@ -118,19 +119,38 @@ public class Main{
                                 break;
 
                             case 3:
-                                System.out.print("Enter Course ID: ");
-                                String ucid = scan.nextLine();
+                                try {
 
-                                System.out.print("Enter Updated Course Name: ");
-                                String ucname = scan.nextLine();
+                                    System.out.print("Enter Student Name: ");
+                                    String enname = scan.nextLine();
 
-                                System.out.print("Enter Updated Program: ");
-                                String ucprog = scan.nextLine();
+                                    System.out.print("Enter Student ID: ");
+                                    String enid = scan.nextLine();
 
-                                Course upcourse = new Course(ucname, ucid, ucprog);
-                                course.updateCourseRecord(upcourse);
+                                    System.out.print("Enter Program: ");
+                                    String enprog = scan.nextLine();
 
-                                System.out.println("Successfully updated course");
+                                    Student enstudent = new Student(enname, enid, enprog);
+
+                                    List<Section> seclist = sectionreg.displayAll();
+
+                                    for(int i = 0; i < seclist.size(); i++){
+                                        System.out.println("[" + i + "] " + seclist.get(i).getSectionName());
+                                    }
+
+                                    System.out.print("Choose Section: ");
+                                    int secchoice = scan.nextInt();
+                                    scan.nextLine();
+
+                                    sectionreg.enrollStudent(seclist.get(secchoice), enstudent);
+
+                                    System.out.println("Successfully enrolled student");
+
+                                }
+                                catch(Exception e){
+                                    System.out.println("ERROR: " + e.getMessage());
+                                }
+
                                 break;
 
                             case 4:
@@ -287,6 +307,49 @@ public class Main{
                     dept.displayAll();
                     break;
 
+
+
+                case 6:
+                    int instch;
+                    do{
+
+                        System.out.println("----------------------------------\n\t\tInstructor Management\n----------------------------------\n[1] Add Instructor \n[2] View Instructors \n[0] Back");
+
+                        instch = scan.nextInt();
+                        scan.nextLine();
+
+                        switch(instch){
+                            case 1:
+                                System.out.print("Enter Instructor Name: ");
+                                String iname = scan.nextLine();
+
+                                System.out.print("Enter Instructor ID: ");
+                                String iid = scan.nextLine();
+
+                                System.out.print("Enter Course: ");
+                                String icourse = scan.nextLine();
+
+                                Instructor instructor = new Instructor(iname, iid, icourse);
+                                instreg.saveInstructor(instructor);
+                                System.out.println("Successfully added instructor");
+                                break;
+
+                            case 2:
+
+                                instreg.displayAll();
+                                break;
+
+                            case 0:
+                                break;
+
+                            default:
+                                System.out.println("Please try again");
+                                break;
+                        }
+
+                    }while(instch != 0);
+
+                    break;
                 case 0:
                     System.out.println("Until next time");
                     break;

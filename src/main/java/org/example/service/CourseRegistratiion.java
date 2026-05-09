@@ -7,7 +7,13 @@ import java.util.ArrayList;
 public class CourseRegistratiion implements CourseReg{
     private ArrayList<Course> courseLists = new ArrayList();
     @Override
-    public void addCourse (Course course){
+    public void addCourse(Course course) {
+        for (Course c : courseLists) {
+            if (c.getCourseID().equals(course.getCourseID())) {
+                System.out.println("Duplicate Course ID is not allowed.");
+                return;
+            }
+        }
         courseLists.add(course);
     }
     @Override
