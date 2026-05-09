@@ -1,6 +1,6 @@
 package org.example.service;
 
-public class TuitionFeePayment {
+public class TuitionFeePayment implements TuitionFeeInterface {
     private final double PRICE_PER_UNIT = 1000;
     private double balance;
     private double totalFee;

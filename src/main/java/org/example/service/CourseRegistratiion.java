@@ -7,16 +7,30 @@ import java.util.ArrayList;
 public class CourseRegistratiion implements CourseReg{
     private ArrayList<Course> courseLists = new ArrayList();
     @Override
-    public void addCourse (Course course){
+    public void addCourse(Course course) {
+        for (Course c : courseLists) {
+            if (c.getCourseID().equals(course.getCourseID())) {
+                System.out.println("Duplicate Course ID is not allowed.");
+                return;
+            }
+        }
         courseLists.add(course);
     }
     @Override
     public void displayAll(){
+
+        System.out.println("\n------------------------------------------------------------------------------------------");
+        System.out.printf("%-15s | %-40s | %-10s%n", "COURSE ID", "COURSE NAME", "PROGRAM");
+        System.out.println("------------------------------------------------------------------------------------------");
+
         for (Course c : courseLists){
-            System.out.println(c.getCourseName());
-            System.out.println(c.getProgram());
-            System.out.println(c.getCourseID());
+            System.out.printf("%-15s | %-40s | %-10s%n",
+                    c.getCourseID(),
+                    c.getCourseName(),
+                    c.getProgram());
         }
+
+        System.out.println("------------------------------------------------------------------------------------------\n");
     }
     @Override
     public void updateCourseRecord(Course course){

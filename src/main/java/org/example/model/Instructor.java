@@ -20,6 +20,9 @@ public class Instructor extends Person {
         this.Courses = Courses;
     }
 
+    public void setCourses(String courses) {
+        this.Courses = courses;
+    }
     @Override
     public String toString() {
         return "Instructor{" +
