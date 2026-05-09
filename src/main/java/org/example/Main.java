@@ -209,6 +209,7 @@ public class Main{
                                     System.out.println("Section ID: " + s.getSectionID());
                                     System.out.println("Section Name: " + s.getSectionName());
                                     System.out.println("Students: " + s.getStudentList());
+                                    System.out.println("Instructor: " + s.getAssignedInstructor());
                                 }
                                 break;
 
@@ -337,6 +338,7 @@ public class Main{
                             case 2:
 
                                 instreg.displayAll();
+
                                 break;
 
                             case 0:
@@ -355,7 +357,7 @@ public class Main{
                     break;
 
                 default:
-                    System.out.println("Please try again");
+                    System.out.println("Invalid Input! Please try again.");
                     break;
             }
 
