@@ -170,9 +170,13 @@ public class Main{
                                 System.out.print("Enter Section Name: ");
                                 String secname = scan.nextLine();
 
+                                System.out.print("Enter Max Capacity: ");
+                                int maxcap = scan.nextInt();
+                                scan.nextLine();
+
                                 List<Student> studentList = new ArrayList<>();
 
-                                Section sec = new Section(secid, secname, studentList);
+                                Section sec = new Section(secid, secname, studentList, maxcap);
                                 sectionreg.addSection(sec);
 
                                 System.out.println("Successfully added section");
